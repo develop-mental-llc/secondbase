@@ -14,7 +14,7 @@ module SecondBase
 
   def self.config(env = nil)
     config = ActiveRecord::Base.configurations[Railtie.config_key]
-    config ? config[env || Rails.env] : nil
+    ENV['SECOND_DB'] || config[env || Rails.env] : nil
   end
 
 end
